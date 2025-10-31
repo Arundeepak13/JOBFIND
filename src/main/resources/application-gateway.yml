@@ -1,0 +1,49 @@
+server:
+  port: 7777
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: http://localhost:8888
+          predicates:
+            - Path=/api/auth/**
+        - id: jobseeker-service
+          uri: http://localhost:7779
+          predicates:
+            - Path=/api/job_Seekers/**
+        - id: recruiter-service
+          uri: http://localhost:7780
+          predicates:
+            - Path=/api/recruiters/**
+        - id: jobPost-service
+          uri: http://localhost:7781
+          predicates:
+            - Path=/api/jobPost/**
+        - id: application-service
+          uri: http://localhost:7782
+          predicates:
+            - Path=/api/applications/**
+        - id: admin-service
+          uri: http://localhost:7783
+          predicates:
+            - Path=/api/admins/**
+        - id: email-service
+          uri: http://localhost:7784
+          predicates:
+            - Path=/api/notifications/**
+        - id: upload-service
+          uri: http://localhost:7785
+          predicates:
+            - Path=/api/upload/**
+        - id: payment-service
+          uri: http://localhost:7786
+          predicates:
+            - Path=/api/payment/**
+        - id: dashboard-service
+          uri: http://localhost:7787
+          predicates:
+            - Path=/api/dashboard/**

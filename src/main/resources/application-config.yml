@@ -1,0 +1,15 @@
+server:
+  port: 7850
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Arundeepak13/JOBFIND.git
+          default-label: main
+          clone-on-start: true
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
