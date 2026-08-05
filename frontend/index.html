@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JobFind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ============ AUTH SCREEN ============ -->
+  <section id="view-auth" class="view auth-view">
+    <div class="auth-panel">
+      <div class="auth-brand">
+        <div class="brand-mark">JF</div>
+        <h1>JobFind</h1>
+        <p class="brand-tag">Where the next role finds you.</p>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Log in</button>
+          <button class="auth-tab" data-tab="register">Create account</button>
+        </div>
+
+        <form id="form-login" class="auth-form active">
+          <label>Email
+            <input type="email" id="login-email" required placeholder="you@example.com">
+          </label>
+          <label>Password
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </label>
+          <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          <p class="form-msg" id="login-msg"></p>
+        </form>
+
+        <form id="form-register" class="auth-form">
+          <label>Full name
+            <input type="text" id="reg-name" required placeholder="Jane Doe">
+          </label>
+          <label>Email
+            <input type="email" id="reg-email" required placeholder="you@example.com">
+          </label>
+          <label>Password
+            <input type="password" id="reg-password" required placeholder="At least 6 characters" minlength="6">
+          </label>
+          <label>I am a
+            <select id="reg-role">
+              <option value="JOBSEEKER">Job seeker</option>
+              <option value="RECRUITER">Recruiter</option>
+            </select>
+          </label>
+          <button type="submit" class="btn btn-primary btn-block">Create account</button>
+          <p class="form-msg" id="register-msg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APP SHELL ============ -->
+  <div id="view-shell" class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark small">JF</div>
+        <span>JobFind</span>
+      </div>
+
+      <nav class="side-nav" id="side-nav"><!-- injected --></nav>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <div class="avatar" id="user-avatar">?</div>
+          <div class="user-meta">
+            <div class="user-name" id="user-name">—</div>
+            <div class="user-role" id="user-role">—</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-block" id="btn-logout">Log out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2 id="page-title">Dashboard</h2>
+        <div class="topbar-actions" id="topbar-actions"></div>
+      </header>
+
+      <div class="content" id="content"><!-- injected views --></div>
+    </main>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
